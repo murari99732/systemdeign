@@ -1,0 +1,23 @@
+ public static void main(String... args) throws Exception {
+        Employee[] arrayOfEmps = {
+                new Employee(1, "Rahulwa", 100000),
+                new Employee(2, null, 200000),
+                new Employee(3, "Mark Zuckerberg", 300000)
+        };
+
+        Optional<String> s = Optional.of(arrayOfEmps[1].getName());  // if our value will always be present
+        Optional<String> st = Optional.ofNullable(arrayOfEmps[1].getName()); // if our value can be null
+
+//        String deafult = Optional.ofNullable(arrayOfEmps[1].getName()).orElseThrow(()->new IllegalArgumentException("No value present omg")); 
+//     String deafult = Optional.ofNullable(arrayOfEmps[1].getName()).orElse("default"); 
+// if value is null then what default value can we give or throw error
+//        System.out.println(deafult);
+//
+//        Arrays.stream(arrayOfEmps).peek(a -> Optional.ofNullable(a.getName()).orElse("default").toUpperCase()).peek(a->System.out.println(a)).collect(Collectors.toList());
+
+        System.out.println(s.map(a->a.toUpperCase()).orElseThrow(()->new IllegalArgumentException("Hey error"))); 
+        // we do map on optional if value is not present then throw error or do something else
+
+
+    }
+
