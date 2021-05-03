@@ -17,6 +17,13 @@
 
         System.out.println(s.map(a->a.toUpperCase()).orElseThrow(()->new IllegalArgumentException("Hey error"))); 
         // we do map on optional if value is not present then throw error or do something else
+        
+        
+        
+        
+                Employee rahul = Arrays.stream(arrayOfEmps).filter(a -> a.name.equals("Rahul")).findAny().orElse(new Employee());
+        System.out.println(rahul);
+        // How to use optional in stream
 
 
     }
