@@ -28,5 +28,19 @@
 
     }
     
+       public static void main(String... args) throws Exception {
+        Consumer<Integer> consumer= t->System.out.print(t);
+        
+        Predicate<Integer> predicate= t->t%2==0;
+        
+        Supplier<Integer> supplier=()->10;
+        
+        List<Integer> list= Arrays.asList(1,2,3,4,5);
+        list.stream().filter(predicate).forEach(consumer);
+        Integer integer = list.stream().filter(a->a>10).findAny().orElseGet(supplier);
+        System.out.print(integer);
+    }
+    
+    
     //https://www.youtube.com/watch?v=4BUKaazoYyg
 
